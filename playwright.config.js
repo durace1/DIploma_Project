@@ -12,7 +12,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : 2,
   reporter: [['line'], ['allure-playwright', {
       detail: true,
-      outputFolder: 'allure-results',
+      resultsDir: "allure-results",
       suiteTitle: false
     }]
   ],
