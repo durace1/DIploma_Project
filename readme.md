@@ -33,6 +33,10 @@
 ![Telegram](https://img.shields.io/badge/-Telegram-%2326A5E4?logo=telegram&logoColor=white)
 
 ## 🚀Установка
+Клонировать репозиторий на локальную машину
+```
+git clone https://github.com/durace1/DIploma_Project.git
+```
 Установка **node.js.**:
 ```
 npm install
