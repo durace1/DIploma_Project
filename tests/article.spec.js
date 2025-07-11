@@ -13,13 +13,13 @@ test ('Создание статьи',{
         .addPassword()
         .addUsername()
         .generate();
-
+ 
     //Регистрируемся
-        let app = new App(page);
-        await app.main.open();
-        await app.main.goToSignup();
-        await app.register.signup(randomUser);
-        await expect(app.main.profileNameField).toContainText(randomUser.username);
+    let app = new App(page);
+    await app.main.open();
+    await app.main.goToSignup();
+    await app.register.signup(randomUser);
+    await expect(app.main.profileNameField).toContainText(randomUser.username);
 
     //Генерим статью
     const randomArticle = new ArticleBuilder()
@@ -45,11 +45,11 @@ test ('Поставить лайк статье',{
         .generate();
 
     //Регистрируемся
-        let app = new App(page);
-        await app.main.open();
-        await app.main.goToSignup();
-        await app.register.signup(randomUser);
-        await expect(app.main.profileNameField).toContainText(randomUser.username);
+    let app = new App(page);
+    await app.main.open();
+    await app.main.goToSignup();
+    await app.register.signup(randomUser);
+    await expect(app.main.profileNameField).toContainText(randomUser.username);
 
     //Генерим статью
     const randomArticle = new ArticleBuilder()

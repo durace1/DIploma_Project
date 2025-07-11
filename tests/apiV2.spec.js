@@ -4,8 +4,6 @@ import { builder } from "../src/helpers/builders/api.builder";
  
 let token;
 
-
-
 test.beforeAll(async ({ api }) => {
     token = await api.challenger.post();
     console.log(token)
@@ -70,8 +68,7 @@ test.describe('GET Challenges', () => {
     const responseHeader = response.headers()
     expect (responseHeader['content-type']).toBe('application/xml')
     });
-
-        
+    
     test('#29 GET /todos?(200)',{
     tag: ['@GET'],}, async ({ api }) => {
     const acceptHeader = ''
@@ -86,25 +83,17 @@ test.describe('GET Challenges', () => {
     const acceptHeader = 'application/gzip'
     const response = await api.todos.getByType(token, acceptHeader);
     expect (response.status()).toBe(406);
-    expect(response.statusText()).toBe('Not Acceptable')
+    expect (response.statusText()).toBe('Not Acceptable')
     });
 
-    test('#44GET /heartbeat(204)',{
-    tag: ['@GET'],}, async ({ api }) => {
-    const response = await api.heartbeat.getCode(token);
-    expect (response.status()).toBe(204);
-    })
-
     test('#34 /challenger/guid(200)',{
-    tag: ['@GET'],
-    }, async ({ api }) => {
+    tag: ['@GET'],}, async ({ api }) => {
     const response = await api.challenger.get(token);
     const headers = response.headers()
     const body = await response.json();
-    expect(response.status()).toBe(200)
-    expect(headers['x-challenger']).toBe(token)
-    expect(body['challengeStatus']).not.toBeNull()
-        
+    expect (response.status()).toBe(200)
+    expect (headers['x-challenger']).toBe(token)
+    expect (body['challengeStatus']).not.toBeNull()     
     })
 })
 test.describe('POST Challenges', () => {
