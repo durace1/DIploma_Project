@@ -52,3 +52,10 @@ npm run allure
 ## Сборка в Jenkins
 Предварительно необходимо зарегистрироваться в [Jenkins](https://jenkins.autotests.cloud/). Нужно открыть [джобу](https://jenkins.autotests.cloud/job/Alripa_Diploma_project/) и нажать на кнопку Build now.
 ![скриншот дженкинса](media/screenshots/jenkins.png)
+
+После выполнения джобы можно перейти в [Allure TestOps](https://allure.autotests.cloud/project/4836/dashboards) для просмотра истории прогонов или посмотреть [отчет allure](https://jenkins.autotests.cloud/job/Alripa_Diploma_project/allure/)
+# Allure testops
+![скриншот алююртестопса](media/screenshots/allure_testops.png)
+
+# Allure report
+![скриншот аллюррепорта](media/screenshots/allure_report.png)
