@@ -5,7 +5,10 @@
   "scripts":  {
     "test": "npx playwright test",
     "testUI": "npx playwright test --ui",
-    "codegen": "npx playwright codegen"
+    "codegen": "npx playwright codegen",
+    "allureOpen": "allure open",
+    "allureGenerate": "allure generate --clean",
+    "allure": "allure generate --clean && allure open"
   },
   "keywords": [],
   "author": "",
