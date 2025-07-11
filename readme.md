@@ -59,3 +59,7 @@ npm run allure
 
 # Allure report
 ![скриншот аллюррепорта](media/screenshots/allure_report.png)
+
+## ✈️Уведомления в telegram
+После завершения сборки бот в Telegram автоматически отправляет сообщение с отчетом о результате прогона
+![скриншот телеги](media/screenshots/telegram.png)
