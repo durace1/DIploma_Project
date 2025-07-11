@@ -4,6 +4,7 @@ import { UserBuilder } from '../src/helpers/builders/user.builder';
 import { App } from '../src/pages/app.page'
 import { ArticleBuilder } from '../src/helpers/builders/article.builder';
 
+test.describe('Article tests', () => {
 test ('Создание статьи',{
     tag: ['@ARTICLE'],}, async ({page})=> {
     //Генерим пользователя
@@ -90,4 +91,5 @@ test ('Отфильтровать статью по тегу из списка',
     const tagName = await app.main.firstTag.textContent();
     await app.main.tagFiltering();
     await expect(app.main.firstArticleTag).toContainText(tagName)
+})
 })

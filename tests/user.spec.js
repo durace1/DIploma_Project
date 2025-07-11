@@ -3,6 +3,7 @@ import { test, expect } from '@playwright/test';
 import { UserBuilder } from '../src/helpers/builders/user.builder';
 import { App } from '../src/pages/app.page'
 
+test.describe('User tests', () => {
 test ('Возможность логаута пользователя',{
     tag: ['@USER'],}, async ({page})=> {
     //Генерим пользователя
@@ -54,4 +55,5 @@ test.only ('Смена пароля у пользователя',{
     await app.main.gotoLogin();
     await app.register.login(randomUser);
     await expect(page.getByRole('main')).toContainText('Wrong email/password combination');
+})
 })
