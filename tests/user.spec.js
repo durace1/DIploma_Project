@@ -3,7 +3,8 @@ import { test, expect } from '@playwright/test';
 import { UserBuilder } from '../src/helpers/builders/user.builder';
 import { App } from '../src/pages/app.page'
 
-test ('Возможность логаута пользователя', async ({page})=> {
+test ('Возможность логаута пользователя',{
+    tag: ['@USER'],}, async ({page})=> {
     //Генерим пользователя
     const randomUser = new UserBuilder()
         .addEmail()
@@ -23,7 +24,8 @@ test ('Возможность логаута пользователя', async ({
     await expect(page.getByRole('link', { name: ' Login' })).toBeVisible();
 })
 
-test ('Смена пароля у пользователя', async ({page})=> {
+test ('Смена пароля у пользователя',{
+    tag: ['@USER'],}, async ({page})=> {
     //Генерим пользователя
     const randomUser = new UserBuilder()
         .addEmail()

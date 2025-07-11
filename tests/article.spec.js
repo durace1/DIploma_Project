@@ -4,7 +4,8 @@ import { UserBuilder } from '../src/helpers/builders/user.builder';
 import { App } from '../src/pages/app.page'
 import { ArticleBuilder } from '../src/helpers/builders/article.builder';
 
-test ('Создание статьи', async ({page})=> {
+test ('Создание статьи',{
+    tag: ['@ARTICLE'],}, async ({page})=> {
     //Генерим пользователя
     const randomUser = new UserBuilder()
         .addEmail()
@@ -33,7 +34,8 @@ test ('Создание статьи', async ({page})=> {
     await expect(page.getByRole('button', { name: '  Edit Article' }).first()).toBeVisible();
 })
 
-test ('Поставить лайк статье', async ({page})=> {
+test ('Поставить лайк статье',{
+    tag: ['@ARTICLE'],}, async ({page})=> {
     //Генерим пользователя
     const randomUser = new UserBuilder()
         .addEmail()
@@ -68,7 +70,8 @@ test ('Поставить лайк статье', async ({page})=> {
     await expect(page.getByRole('button', { name: '  ( 1 )' })).toBeVisible();
 })
 
-test ('Отфильтровать статью по тегу из списка', async ({page})=> {
+test ('Отфильтровать статью по тегу из списка',{
+    tag: ['@ARTICLE'],}, async ({page})=> {
     //Генерим пользователя
     const randomUser = new UserBuilder()
         .addEmail()
