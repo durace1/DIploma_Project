@@ -54,10 +54,10 @@ npm run allure
 ![скриншот дженкинса](media/screenshots/jenkins.png)
 
 После выполнения джобы можно перейти в [Allure TestOps](https://allure.autotests.cloud/project/4836/dashboards) для просмотра истории прогонов или посмотреть [отчет allure](https://jenkins.autotests.cloud/job/Alripa_Diploma_project/allure/)
-# Allure testops
+## Allure testops
 ![скриншот алююртестопса](media/screenshots/allure_testops.png)
 
-# Allure report
+## Allure report
 ![скриншот аллюррепорта](media/screenshots/allure_report.png)
 
 ## ✈️Уведомления в telegram
