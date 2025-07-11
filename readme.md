@@ -45,3 +45,10 @@ npm init playwright@latest
 ```
 npm t
 ```
+Генерация отчета **allure**:
+```
+npm run allure
+```
+## Сборка в Jenkins
+Предварительно необходимо зарегистрироваться в [Jenkins](https://jenkins.autotests.cloud/). Нужно открыть [джобу](https://jenkins.autotests.cloud/job/Alripa_Diploma_project/) и нажать на кнопку Build now.
+![скриншот дженкинса](media/screenshots/jenkins.png)
