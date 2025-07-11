@@ -24,7 +24,7 @@ test ('Возможность логаута пользователя',{
     await expect(page.getByRole('link', { name: ' Login' })).toBeVisible();
 })
 
-test ('Смена пароля у пользователя',{
+test.only ('Смена пароля у пользователя',{
     tag: ['@USER'],}, async ({page})=> {
     //Генерим пользователя
     const randomUser = new UserBuilder()
@@ -33,7 +33,7 @@ test ('Смена пароля у пользователя',{
         .addUsername()
         .generate();
     // Пароль для проверки
-    const newPassword = '1234567'
+    const newPassword = new UserBuilder().addPassword().generate().password;
 
     let app = new App(page);
     //Регистрируемся
