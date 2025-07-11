@@ -25,7 +25,7 @@ test ('Возможность логаута пользователя',{
     await expect(page.getByRole('link', { name: ' Login' })).toBeVisible();
 })
 
-test.only ('Смена пароля у пользователя',{
+test ('Смена пароля у пользователя',{
     tag: ['@USER'],}, async ({page})=> {
     //Генерим пользователя
     const randomUser = new UserBuilder()
