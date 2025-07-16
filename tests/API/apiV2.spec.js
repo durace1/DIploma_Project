@@ -1,6 +1,6 @@
 import { expect } from "@playwright/test";
-import { test } from "../src/helpers/fixtures/index";
-import { builder } from "../src/helpers/builders/api.builder";
+import { test } from "../../src/helpers/fixtures/index";
+import { builder } from "../../src/helpers/builders/index";
  
 let token;
 

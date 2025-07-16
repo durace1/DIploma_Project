@@ -7,11 +7,21 @@ export class NewArticlePage {
         this.contentArticle = page.getByRole('textbox', { name: 'Write your article (in' });
         this.tagsArticle = page.getByRole('textbox', { name: 'Enter tags' });
         this.createArticleButton = page.getByRole('button', { name: 'Publish Article' });
+        this.editButton = page.locator('button:has-text("Edit Article")').first();
+    }
+
+    getEditButton() {
+        return this.editButton;
+    }
+    
+
+    getLikeButton() {
+        return this.page.locator('button:has-text("(")').first();
     }
 
 
     async open() {
-        await this.page.goto('https://realworld.qa.guru/#/editor');
+        await this.page.goto("#/editor");
     }
 
 

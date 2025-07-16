@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "playwright",
+			"path": "../playwright"
+		},
+		{
+			"path": "../Academybugs"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {}
+}

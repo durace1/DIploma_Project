@@ -1,12 +1,10 @@
-
-import { test, expect } from '@playwright/test';
-import { UserBuilder } from '../src/helpers/builders/user.builder';
-import { App } from '../src/pages/app.page'
-import { ArticleBuilder } from '../src/helpers/builders/article.builder';
+import { uiTest as test, expect } from '../../src/helpers/fixtures';
+import { ArticleBuilder, UserBuilder } from '../../src/helpers/builders/index';
+//import { App } from '../src/pages/app.page'
 
 test.describe('Article tests', () => {
 test ('Создание статьи',{
-    tag: ['@ARTICLE'],}, async ({page})=> {
+    tag: ['@ARTICLE'],}, async ({page, app})=> {
     //Генерим пользователя
     const randomUser = new UserBuilder()
         .addEmail()
@@ -15,7 +13,7 @@ test ('Создание статьи',{
         .generate();
  
     //Регистрируемся
-    let app = new App(page);
+    //let app = new App(page);
     await app.main.open();
     await app.main.goToSignup();
     await app.register.signup(randomUser);
@@ -32,11 +30,11 @@ test ('Создание статьи',{
     //Создаем статью
     await app.newArticle.open();
     await app.newArticle.newArticle(randomArticle);
-    await expect(page.getByRole('button', { name: '  Edit Article' }).first()).toBeVisible();
+    await expect(app.newArticle.getEditButton()).toBeVisible();
 })
 
 test ('Поставить лайк статье',{
-    tag: ['@ARTICLE'],}, async ({page})=> {
+    tag: ['@ARTICLE'],}, async ({page, app})=> {
     //Генерим пользователя
     const randomUser = new UserBuilder()
         .addEmail()
@@ -45,7 +43,7 @@ test ('Поставить лайк статье',{
         .generate();
 
     //Регистрируемся
-    let app = new App(page);
+    //let app = new App(page);
     await app.main.open();
     await app.main.goToSignup();
     await app.register.signup(randomUser);
@@ -62,17 +60,17 @@ test ('Поставить лайк статье',{
     //Создаем статью
     await app.newArticle.open();
     await app.newArticle.newArticle(randomArticle);
-    await expect(page.getByRole('button', { name: '  Edit Article' }).first()).toBeVisible();
+    await expect(app.newArticle.getEditButton()).toBeVisible();
 
     //Поставим лайк статье
     await app.main.open();
     await app.globalFeed.open();
     await app.globalFeed.likeArticle();
-    await expect(page.getByRole('button', { name: '  ( 1 )' })).toBeVisible();
+    await expect(app.newArticle.getLikeButton()).toHaveText('  ( 1 )');
 })
 
 test ('Отфильтровать статью по тегу из списка',{
-    tag: ['@ARTICLE'],}, async ({page})=> {
+    tag: ['@ARTICLE'],}, async ({page, app})=> {
     //Генерим пользователя
     const randomUser = new UserBuilder()
         .addEmail()
@@ -81,7 +79,7 @@ test ('Отфильтровать статью по тегу из списка',
         .generate();
 
     //Регистрируемся
-    let app = new App(page);
+    //let app = new App(page);
     await app.main.open();
     await app.main.goToSignup();
     await app.register.signup(randomUser);

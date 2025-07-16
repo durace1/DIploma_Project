@@ -1,11 +1,11 @@
 
-import { test, expect } from '@playwright/test';
-import { UserBuilder } from '../src/helpers/builders/user.builder';
-import { App } from '../src/pages/app.page'
+import { uiTest as test, expect } from '../../src/helpers/fixtures';
+import { UserBuilder } from '../../src/helpers/builders/index';
+//import { App } from '../src/pages/app.page'
 
 test.describe('User tests', () => {
 test ('Возможность логаута пользователя',{
-    tag: ['@USER'],}, async ({page})=> {
+    tag: ['@USER'],}, async ({page, app})=> {
     //Генерим пользователя
     const randomUser = new UserBuilder()
         .addEmail()
@@ -13,7 +13,7 @@ test ('Возможность логаута пользователя',{
         .addUsername()
         .generate();
 
-    let app = new App(page);
+    //let app = new App(page);
     //Регистрируемся
     await app.main.open();
     await app.main.goToSignup();
@@ -22,11 +22,11 @@ test ('Возможность логаута пользователя',{
 
     //Логаутимся
     await app.settings.clickLogoutButton();
-    await expect(page.getByRole('link', { name: ' Login' })).toBeVisible();
+    await expect(app.main.logoutLoginButton).toBeVisible();
 })
 
 test ('Смена пароля у пользователя',{
-    tag: ['@USER'],}, async ({page})=> {
+    tag: ['@USER'],}, async ({page, app})=> {
     //Генерим пользователя
     const randomUser = new UserBuilder()
         .addEmail()
@@ -36,7 +36,7 @@ test ('Смена пароля у пользователя',{
     // Пароль для проверки
     const newPassword = new UserBuilder().addPassword().generate().password;
 
-    let app = new App(page);
+    //let app = new App(page);
     //Регистрируемся
     await app.main.open();
     await app.main.goToSignup();
@@ -54,6 +54,6 @@ test ('Смена пароля у пользователя',{
     //Пробуем зайти со старым паролем
     await app.main.gotoLogin();
     await app.register.login(randomUser);
-    await expect(page.getByRole('main')).toContainText('Wrong email/password combination');
+    await expect(app.register.errorMessage).toContainText('Wrong email/password combination');
 })
 })

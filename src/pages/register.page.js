@@ -6,6 +6,7 @@ export class RegisterPage {
         this.passwordField = page.getByRole('textbox', { name: 'Password' });
         this.usernameField = page.getByRole('textbox', { name: 'Your Name' });
         this.loginButton = page.getByRole('button', { name: 'Login' });
+        this.errorMessage = page.getByRole('main');
     };
 
     async signup(randomUser) {
@@ -26,6 +27,10 @@ export class RegisterPage {
         await this.passwordField.click();
         await this.passwordField.fill(password);
         await this.loginButton.click();
+    }
+
+    async getErrorText() {
+        return this.errorMessage.textContent();
     }
 }
 

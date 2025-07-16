@@ -9,7 +9,7 @@ export class SettingsPage {
     };
 
     async open() {
-        await this.page.goto('https://realworld.qa.guru/#/settings');
+        await this.page.goto("#/settings");
     };
 
     async changePassword(randomUser) {
