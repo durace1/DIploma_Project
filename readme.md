@@ -41,7 +41,7 @@ git clone https://github.com/durace1/DIploma_Project.git
 ```
 npm install
 ```
-Установка **playwright**:
+Инициализация нового проекта **playwright**:
 ```
 npm init playwright@latest
 ```
@@ -51,7 +51,7 @@ npm t
 ```
 Генерация отчета **allure**:
 ```
-npm run allure
+npx allure generate allure-results -o allure-report
 ```
 ## Сборка в Jenkins
 Предварительно необходимо зарегистрироваться в [Jenkins](https://jenkins.autotests.cloud/). Нужно открыть [джобу](https://jenkins.autotests.cloud/job/Alripa_Diploma_project/) и нажать на кнопку Build now.

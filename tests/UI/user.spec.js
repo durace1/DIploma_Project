@@ -13,7 +13,6 @@ test ('Возможность логаута пользователя',{
         .addUsername()
         .generate();
 
-    //let app = new App(page);
     //Регистрируемся
     await app.main.open();
     await app.main.goToSignup();
@@ -36,7 +35,6 @@ test ('Смена пароля у пользователя',{
     // Пароль для проверки
     const newPassword = new UserBuilder().addPassword().generate().password;
 
-    //let app = new App(page);
     //Регистрируемся
     await app.main.open();
     await app.main.goToSignup();

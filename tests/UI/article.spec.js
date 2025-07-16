@@ -13,7 +13,6 @@ test ('Создание статьи',{
         .generate();
  
     //Регистрируемся
-    //let app = new App(page);
     await app.main.open();
     await app.main.goToSignup();
     await app.register.signup(randomUser);
@@ -43,7 +42,6 @@ test ('Поставить лайк статье',{
         .generate();
 
     //Регистрируемся
-    //let app = new App(page);
     await app.main.open();
     await app.main.goToSignup();
     await app.register.signup(randomUser);
@@ -79,7 +77,6 @@ test ('Отфильтровать статью по тегу из списка',
         .generate();
 
     //Регистрируемся
-    //let app = new App(page);
     await app.main.open();
     await app.main.goToSignup();
     await app.register.signup(randomUser);
