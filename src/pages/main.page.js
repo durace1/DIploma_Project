@@ -6,7 +6,7 @@ export class MainPage {
         this.profileNameField = page.getByRole('navigation')
         this.firstTag = page.locator('//button[@class="tag-pill tag-default"][1]');
         this.firstArticleTag = page.locator('//div[@class="article-preview"][1]//li[@class="tag-default tag-pill tag-outline"][1]');
-        this.logoutLoginButton = page.getByRole('link', { name: ' Login' });
+        this.logoutLoginButton = page.getByRole('link', { name: 'Login' });
     };
 
     getLoginButton() {

@@ -5,7 +5,7 @@ export class SettingsPage {
         this.settingsButton = page.getByRole('link', { name: ' Settings' });
         this.updatePassword = page.getByRole('textbox', { name: 'Password' });
         this.updateSettingsButton = page.getByRole('button', { name: 'Update Settings' });
-        this.logoutButton = page.getByRole('link', { name: ' Logout' });
+        this.logoutButton = page.getByRole('link', { name: 'Logout' });
     };
 
     async open() {
