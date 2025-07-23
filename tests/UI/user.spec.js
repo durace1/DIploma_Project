@@ -1,11 +1,10 @@
 
 import { uiTest as test, expect } from '../../src/helpers/fixtures';
 import { UserBuilder } from '../../src/helpers/builders/index';
-//import { App } from '../src/pages/app.page'
 
 test.describe('User tests', () => {
 test ('Возможность логаута пользователя',{
-    tag: ['@USER'],}, async ({page, app})=> {
+    tag: ['@USER'],}, async ({app})=> {
     //Генерим пользователя
     const randomUser = new UserBuilder()
         .addEmail()
@@ -25,7 +24,7 @@ test ('Возможность логаута пользователя',{
 })
 
 test ('Смена пароля у пользователя',{
-    tag: ['@USER'],}, async ({page, app})=> {
+    tag: ['@USER'],}, async ({app})=> {
     //Генерим пользователя
     const randomUser = new UserBuilder()
         .addEmail()

@@ -1,10 +1,9 @@
 import { uiTest as test, expect } from '../../src/helpers/fixtures';
 import { ArticleBuilder, UserBuilder } from '../../src/helpers/builders/index';
-//import { App } from '../src/pages/app.page'
 
 test.describe('Article tests', () => {
 test ('Создание статьи',{
-    tag: ['@ARTICLE'],}, async ({page, app})=> {
+    tag: ['@ARTICLE'],}, async ({app})=> {
     //Генерим пользователя
     const randomUser = new UserBuilder()
         .addEmail()
@@ -33,7 +32,7 @@ test ('Создание статьи',{
 })
 
 test ('Поставить лайк статье',{
-    tag: ['@ARTICLE'],}, async ({page, app})=> {
+    tag: ['@ARTICLE'],}, async ({app})=> {
     //Генерим пользователя
     const randomUser = new UserBuilder()
         .addEmail()
@@ -68,7 +67,7 @@ test ('Поставить лайк статье',{
 })
 
 test ('Отфильтровать статью по тегу из списка',{
-    tag: ['@ARTICLE'],}, async ({page, app})=> {
+    tag: ['@ARTICLE'],}, async ({app})=> {
     //Генерим пользователя
     const randomUser = new UserBuilder()
         .addEmail()
