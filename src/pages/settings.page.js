@@ -9,7 +9,9 @@ export class SettingsPage {
     };
 
     async open() {
-        await this.page.goto("#/settings");
+        //await this.page.goto("#/settings");
+        await this.profileButton.click();
+        await this.settingsButton.click();
     };
 
     async changePassword(randomUser) {

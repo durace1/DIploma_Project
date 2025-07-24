@@ -3,20 +3,7 @@ import { ArticleBuilder, UserBuilder } from '../../src/helpers/builders/index';
 
 test.describe('Article tests', () => {
 test ('Создание статьи',{
-    tag: ['@ARTICLE'],}, async ({app})=> {
-    //Генерим пользователя
-    const randomUser = new UserBuilder()
-        .addEmail()
-        .addPassword()
-        .addUsername()
-        .generate();
- 
-    //Регистрируемся
-    await app.main.open();
-    await app.main.goToSignup();
-    await app.register.signup(randomUser);
-    await expect(app.main.profileNameField).toContainText(randomUser.username);
-
+    tag: ['@ARTICLE'],}, async ({app, authUser})=> {
     //Генерим статью
     const randomArticle = new ArticleBuilder()
         .generateArticleTitle()
@@ -32,20 +19,7 @@ test ('Создание статьи',{
 })
 
 test ('Поставить лайк статье',{
-    tag: ['@ARTICLE'],}, async ({app})=> {
-    //Генерим пользователя
-    const randomUser = new UserBuilder()
-        .addEmail()
-        .addPassword()
-        .addUsername()
-        .generate();
-
-    //Регистрируемся
-    await app.main.open();
-    await app.main.goToSignup();
-    await app.register.signup(randomUser);
-    await expect(app.main.profileNameField).toContainText(randomUser.username);
-
+    tag: ['@ARTICLE'],}, async ({app, authUser})=> {
     //Генерим статью
     const randomArticle = new ArticleBuilder()
         .generateArticleTitle()
@@ -67,20 +41,7 @@ test ('Поставить лайк статье',{
 })
 
 test ('Отфильтровать статью по тегу из списка',{
-    tag: ['@ARTICLE'],}, async ({app})=> {
-    //Генерим пользователя
-    const randomUser = new UserBuilder()
-        .addEmail()
-        .addPassword()
-        .addUsername()
-        .generate();
-
-    //Регистрируемся
-    await app.main.open();
-    await app.main.goToSignup();
-    await app.register.signup(randomUser);
-    await expect(app.main.profileNameField).toContainText(randomUser.username);
-
+    tag: ['@ARTICLE'],}, async ({app, authUser})=> {
     //Фильтруемся по тегу справа
     const tagName = await app.main.firstTag.textContent();
     await app.main.tagFiltering();

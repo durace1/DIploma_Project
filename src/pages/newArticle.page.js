@@ -27,7 +27,7 @@ export class NewArticlePage {
 
     async newArticle(randomArticle) {
         const {title, info, content, tag} = randomArticle;
-        await this.articleTitle.click();
+        await this.newArticleButton.click();
         await this.articleTitle.fill(title);
         await this.aboutArticle.click();
         await this.aboutArticle.fill(info);
