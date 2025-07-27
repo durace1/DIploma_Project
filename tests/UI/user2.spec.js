@@ -1,5 +1,6 @@
-import { uiTest as test, expect } from '../../src/helpers/fixtures/ui2.fixtures';
+import { uiTest as test } from '../../src/helpers/fixtures/ui2.fixtures';
 import { UserBuilder } from '../../src/helpers/builders/index';
+import { expect } from '@playwright/test'
 
 test.describe('User tests', () => {
 test.only ('Возможность логаута пользователя',{
