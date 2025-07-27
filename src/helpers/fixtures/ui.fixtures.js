@@ -22,4 +22,3 @@ export const uiTest = base.extend({
         await use(user);
     },
 });
-
