@@ -9,7 +9,7 @@ test.only ('Возможность логаута пользователя',{
         .addPassword()
         .addUsername()
         .generate();
-    const app = getAuth.user(user);
+    const app = await getAuth.user(user);
     //Логаутимся
     await app.settings.clickLogoutButton();
     await expect(app.main.logoutLoginButton).toBeVisible();
