@@ -1,7 +1,5 @@
 import { test as base } from '@playwright/test';
 import { App } from '../../pages/app.page';
-import { UserBuilder } from '../builders';
-export { expect } from '@playwright/test';
 
 export const uiTest = base.extend({
     app: async ({ page }, use) => {
@@ -9,17 +7,16 @@ export const uiTest = base.extend({
         await use(app);
     },
 
-    authUser: async ({ app }, use) => {
-        //Генерим пользователя
-        const user = new UserBuilder()
-          .addEmail()
-          .addPassword()
-          .addUsername()
-          .generate();
-        await app.main.open();
-        await app.main.goToSignup();
-        await app.register.signup(user);
-        await use(user);
+    getAuth: async ({ app }, use) => {
+        // Фикстура для работы с пользователем
+        const userFixture = {
+            user: async (randomUser) => {
+                await app.main.open();
+                await app.main.goToSignup();
+                await app.register.signup(randomUser);
+                return app;
+            },
+        };
+        await use(userFixture);
     },
 });
-

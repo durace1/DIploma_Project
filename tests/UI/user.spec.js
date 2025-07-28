@@ -1,17 +1,28 @@
-
-import { uiTest as test, expect } from '../../src/helpers/fixtures';
+import { uiTest as test } from '../../src/helpers/fixtures/ui.fixtures';
 import { UserBuilder } from '../../src/helpers/builders/index';
+import { expect } from '@playwright/test'
 
 test.describe('User tests', () => {
 test ('Возможность логаута пользователя',{
-    tag: ['@USER'],}, async ({app, authUser})=> {
+    tag: ['@USER'],}, async ({ getAuth })=> {
+        const user = new UserBuilder()
+        .addEmail()
+        .addPassword()
+        .addUsername()
+        .generate();
+    const app = await getAuth.user(user);
     //Логаутимся
     await app.settings.clickLogoutButton();
     await expect(app.main.logoutLoginButton).toBeVisible();
 })
-
 test ('Смена пароля у пользователя',{
-    tag: ['@USER'],}, async ({app, authUser})=> {
+    tag: ['@USER'],}, async ({getAuth})=> {
+        const user = new UserBuilder()
+        .addEmail()
+        .addPassword()
+        .addUsername()
+        .generate();
+    const app = await getAuth.user(user);
     // Пароль для проверки
     const newPassword = new UserBuilder().addPassword().generate().password;
     //Идем в настройки менять пароль
@@ -25,8 +36,8 @@ test ('Смена пароля у пользователя',{
     //Пробуем зайти со старым паролем
     await app.main.gotoLogin();
     await app.register.login({
-        email: authUser.email,
-        password: authUser.password
+        email: user.email,
+        password: user.password
     });
     await expect(app.register.errorMessage).toContainText('Wrong email/password combination');
 })

@@ -1,9 +1,15 @@
-import { uiTest as test, expect } from '../../src/helpers/fixtures';
+import { uiTest as test } from '../../src/helpers/fixtures/ui.fixtures'
 import { ArticleBuilder, UserBuilder } from '../../src/helpers/builders/index';
-
+import { expect } from '@playwright/test'
 test.describe('Article tests', () => {
 test ('Создание статьи',{
-    tag: ['@ARTICLE'],}, async ({app, authUser})=> {
+    tag: ['@ARTICLE'],}, async ({getAuth})=> {
+    const user = new UserBuilder()
+        .addEmail()
+        .addPassword()
+        .addUsername()
+        .generate();
+    const app = await getAuth.user(user);
     //Генерим статью
     const randomArticle = new ArticleBuilder()
         .generateArticleTitle()
@@ -19,7 +25,13 @@ test ('Создание статьи',{
 })
 
 test ('Поставить лайк статье',{
-    tag: ['@ARTICLE'],}, async ({app, authUser})=> {
+    tag: ['@ARTICLE'],}, async ({getAuth})=> {
+    const user = new UserBuilder()
+        .addEmail()
+        .addPassword()
+        .addUsername()
+        .generate();
+    const app = await getAuth.user(user);
     //Генерим статью
     const randomArticle = new ArticleBuilder()
         .generateArticleTitle()
@@ -41,7 +53,13 @@ test ('Поставить лайк статье',{
 })
 
 test ('Отфильтровать статью по тегу из списка',{
-    tag: ['@ARTICLE'],}, async ({app, authUser})=> {
+    tag: ['@ARTICLE'],}, async ({getAuth})=> {
+    const user = new UserBuilder()
+        .addEmail()
+        .addPassword()
+        .addUsername()
+        .generate();
+    const app = await getAuth.user(user);
     //Фильтруемся по тегу справа
     const tagName = await app.main.firstTag.textContent();
     await app.main.tagFiltering();
